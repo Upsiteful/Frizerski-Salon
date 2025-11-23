@@ -1,0 +1,780 @@
+:root {
+  --bg: #050509;
+  --bg-soft: #111018;
+  --bg-soft-2: #191825;
+  --accent: #e0b973;
+  --accent-soft: rgba(224, 185, 115, 0.15);
+  --text: #f6f3ff;
+  --muted: #b7b3c7;
+  --border: #262338;
+  --danger: #ff5c5c;
+  --radius-lg: 24px;
+  --radius-md: 16px;
+  --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.45);
+  --transition-fast: 0.2s ease;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Lora", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  background: radial-gradient(circle at top, #1b1830 0, #050509 55%);
+  color: var(--text);
+  scroll-behavior: smooth;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Layout */
+
+.page-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header & nav */
+
+.site-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.top-bar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 6vw;
+  background: rgba(5, 5, 9, 0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.slika-gore {
+  width: 52px;
+  height: 52px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 15px;
+}
+
+.brand-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.main-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.top-bar-button {
+  position: relative;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: border var(--transition-fast), background var(--transition-fast),
+    color var(--transition-fast), transform var(--transition-fast);
+}
+
+.top-bar-button:hover {
+  color: var(--text);
+  border-color: rgba(224, 185, 115, 0.5);
+  background: rgba(224, 185, 115, 0.08);
+  transform: translateY(-1px);
+}
+
+.top-bar-secondary {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  padding: 72px 6vw 90px;
+  overflow: hidden;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 10% 0%, #f5d39b33 0, transparent 45%),
+    radial-gradient(circle at 80% 0%, #f0a4ff2e 0, transparent 40%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  max-width: 700px;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: clamp(32px, 4vw, 44px);
+  margin: 0 0 18px;
+  line-height: 1.1;
+}
+
+.hero p {
+  margin: 0 0 24px;
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 540px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.hero-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.hero-info i {
+  margin-right: 6px;
+}
+
+/* Buttons */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: background var(--transition-fast), transform var(--transition-fast),
+    box-shadow var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #e0b973, #f7d9a0);
+  color: #1a1309;
+  box-shadow: var(--shadow-soft);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.5);
+}
+
+.btn-outline {
+  border-color: rgba(255, 255, 255, 0.22);
+  color: var(--text);
+  background: rgba(8, 6, 18, 0.85);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  background: rgba(224, 185, 115, 0.1);
+}
+
+/* Sekcije */
+
+.section {
+  padding: 48px 6vw;
+}
+
+.section-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.section-header h2 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.section-header p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* O nama */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 32px;
+}
+
+.about-text p {
+  margin-top: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.about-list {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.about-list i {
+  color: var(--accent);
+  font-size: 13px;
+}
+
+.about-card {
+  background: radial-gradient(circle at top, #262338, #171421);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: var(--shadow-soft);
+}
+
+.about-card h3 {
+  margin: 0 0 8px;
+}
+
+.about-card p {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.highlight-text {
+  margin-top: 12px;
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* Kartice usluga */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--bg-soft);
+  border-radius: var(--radius-md);
+  padding: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast),
+    border-color var(--transition-fast), background var(--transition-fast);
+}
+
+.card h3 {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
+
+.card h3 i {
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  border-color: rgba(224, 185, 115, 0.4);
+  background: linear-gradient(135deg, #191825, #221b33);
+}
+
+.section-cta {
+  margin-top: 20px;
+}
+
+/* Tim frizera */
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.frizer {
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  position: relative;
+}
+
+.frizer-inner {
+  padding: 16px 16px 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.profilna {
+  width: 110px;
+  height: 110px;
+  border-radius: 999px;
+  object-fit: cover;
+  border: 2px solid rgba(224, 185, 115, 0.6);
+  margin-bottom: 6px;
+}
+
+.ime {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.role {
+  margin: 0;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.rating {
+  margin: 4px 0 8px;
+  font-size: 13px;
+  color: var(--accent);
+}
+
+.rating i {
+  margin-right: 4px;
+}
+
+.termin {
+  margin-top: 4px;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #e0b973, #f7d9a0);
+  color: #1a1309;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+  transition: transform var(--transition-fast),
+    box-shadow var(--transition-fast), opacity var(--transition-fast);
+}
+
+.termin:hover {
+  transform: translateY(-1px) scale(1.02);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+}
+
+/* Booking sekcija */
+
+.booking-section {
+  background: radial-gradient(circle at top, #221b33, #050509);
+}
+
+.booking-inner {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 28px;
+  align-items: flex-start;
+}
+
+.booking-text p {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.booking-list {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 18px;
+}
+
+.booking-list li {
+  font-size: 14px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.booking-list i {
+  color: var(--accent);
+}
+
+.booking-note {
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-soft);
+  font-size: 14px;
+}
+
+.booking-note h3 {
+  margin: 0 0 4px;
+}
+
+.booking-note p {
+  margin: 0 0 10px;
+  color: var(--muted);
+}
+
+/* Galerija */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 12px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  transition: transform var(--transition-fast), filter var(--transition-fast);
+}
+
+.gallery-item:hover img {
+  transform: scale(1.04);
+  filter: brightness(1.05);
+}
+
+/* Kontakt / lokacija */
+
+.contact-inner {
+  display: grid;
+  grid-template-columns: 1.3fr 1.7fr;
+  gap: 28px;
+}
+
+.contact-block p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0;
+}
+
+.contact-block i {
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+.map-placeholder {
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* Popup modal */
+
+.popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 2, 8, 0.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 80;
+}
+
+.popup-inner {
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+  background: #13101e;
+  border-radius: var(--radius-lg);
+  padding: 20px 20px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 28px 60px rgba(0, 0, 0, 0.85);
+}
+
+.exit {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.poptekst {
+  margin: 0 0 12px;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.popup-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.popup-row label {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.day,
+.vreme {
+  flex: 1 1 100px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #080612;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.potvrda,
+.prikaz,
+.confirm-button {
+  padding: 7px 12px;
+  border-radius: 999px;
+  border: none;
+  font-size: 13px;
+  cursor: pointer;
+  background: var(--accent-soft);
+  color: var(--accent);
+  transition: background var(--transition-fast), transform var(--transition-fast);
+}
+
+.potvrda:hover,
+.prikaz:hover,
+.confirm-button:hover {
+  background: rgba(224, 185, 115, 0.25);
+  transform: translateY(-1px);
+}
+
+.popup-user {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+
+.ime2,
+.broj {
+  flex: 1 1 100px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: #080612;
+  color: var(--text);
+  font-size: 13px;
+}
+
+.war {
+  margin: 6px 0 0;
+  font-size: 12px;
+  color: var(--danger);
+}
+
+/* Donja traka */
+
+.bottom-section {
+  padding: 32px 6vw 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 16px;
+}
+
+.bottom-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.bottom-bar-btn {
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(8, 6, 18, 0.9);
+  color: var(--muted);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.bottom-bar-btn:hover {
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+.bottom-bar-content {
+  display: none;
+  margin-top: 6px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: var(--bg-soft-2);
+  border: 1px solid var(--border);
+}
+
+.bottom-bar-content.show {
+  display: block;
+}
+
+.contact-info p,
+.social-media p,
+.faq-question,
+.faq-answer {
+  margin: 5px 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.faq-question {
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* Footer */
+
+.site-footer {
+  padding: 12px 6vw 18px;
+  font-size: 12px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: auto;
+}
+
+.back-to-top {
+  color: var(--muted);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.back-to-top i {
+  font-size: 10px;
+}
+
+/* Stari gradient divovi – blago prigušeni, možeš и да их обришеш */
+
+.gradient-overlay1,
+.gradient-overlay2 {
+  display: none;
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .about-grid,
+  .booking-inner,
+  .contact-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .main-nav {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    padding-top: 48px;
+  }
+
+  .section {
+    padding-inline: 5vw;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}

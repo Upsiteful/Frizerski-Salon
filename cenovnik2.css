@@ -1,0 +1,200 @@
+/* Aktivna stavka u meniju za cenovnik */
+.active-nav {
+  border-color: rgba(224, 185, 115, 0.6);
+  background: rgba(224, 185, 115, 0.12);
+  color: var(--text);
+}
+
+/* Hero blok za cenovnik */
+
+.price-hero {
+  padding-top: 40px;
+  padding-bottom: 32px;
+  background: radial-gradient(circle at top, #221b33, #050509);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.price-hero-inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.price-hero-inner h1 {
+  margin: 0 0 10px;
+  font-size: clamp(26px, 3vw, 32px);
+}
+
+.price-hero-inner p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+  max-width: 520px;
+}
+
+.price-hero-cta {
+  background: var(--bg-soft);
+  border-radius: var(--radius-lg);
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-soft);
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.price-hero-cta p {
+  margin: 0 0 8px;
+}
+
+/* Glavni cenovnik */
+
+.price-section {
+  padding-top: 32px;
+}
+
+.price-group {
+  margin-bottom: 32px;
+}
+
+.price-group-header h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.price-group-header p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+/* Tabela cenovnika kao fleks grid */
+
+.price-table {
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+  background: rgba(11, 9, 20, 0.85);
+  box-shadow: var(--shadow-soft);
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: minmax(160px, 2fr) minmax(180px, 3fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.price-row:last-child {
+  border-bottom: none;
+}
+
+.price-name {
+  font-weight: 600;
+}
+
+.price-desc {
+  color: var(--muted);
+}
+
+.price-value {
+  justify-self: end;
+  font-weight: 600;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+/* Posebno naglašena ponuda */
+
+.highlight-offer {
+  background: linear-gradient(135deg, rgba(224, 185, 115, 0.09), #151221);
+  border-top: 1px solid rgba(224, 185, 115, 0.4);
+}
+
+.highlight-offer .price-value {
+  color: #ffda79;
+}
+
+/* Grid za dve grupe (dечији програм + пакети) */
+
+.price-group-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  border: none;
+}
+
+/* Napomena ispod cenovnika */
+
+.price-note {
+  margin-top: 12px;
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px dashed rgba(255, 255, 255, 0.18);
+  background: rgba(11, 9, 20, 0.9);
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.price-note i {
+  margin-right: 8px;
+  color: var(--accent);
+}
+
+/* Donji CTA */
+
+.price-bottom-cta {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+  .price-group-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .price-row {
+    grid-template-columns: 1.6fr 1.4fr;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "name value"
+      "desc desc";
+  }
+
+  .price-name {
+    grid-area: name;
+  }
+
+  .price-desc {
+    grid-area: desc;
+  }
+
+  .price-value {
+    grid-area: value;
+  }
+}
+
+@media (max-width: 600px) {
+  .price-hero-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .price-hero-cta {
+    width: 100%;
+  }
+}
